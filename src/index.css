@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink font-body text-gray-100 antialiased;
+    background: #0D0D0D;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #12121F;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2A2A45;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6EE7B7;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(28, 28, 48, 0.6);
+    border: 1px solid rgba(42, 42, 69, 0.8);
+    backdrop-filter: blur(12px);
+  }
+
+  .neon-border {
+    border: 1px solid rgba(110, 231, 183, 0.3);
+    box-shadow: 0 0 20px rgba(110, 231, 183, 0.05);
+  }
+
+  .btn-primary {
+    @apply bg-accent text-ink font-display font-bold px-6 py-2.5 rounded-lg transition-all duration-200;
+    @apply hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/20 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply border border-slate-border text-gray-300 font-body px-5 py-2 rounded-lg transition-all duration-200;
+    @apply hover:border-accent/40 hover:text-accent hover:bg-accent/5;
+  }
+
+  .input-field {
+    @apply w-full bg-slate-panel border border-slate-border rounded-lg px-4 py-3;
+    @apply text-gray-100 font-body placeholder-gray-500;
+    @apply focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/20;
+    @apply transition-all duration-200;
+  }
+
+  .stat-card {
+    @apply glass-card rounded-xl p-5 transition-all duration-300;
+    @apply hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5;
+  }
+
+  .table-row-hover {
+    @apply hover:bg-slate-card/70 cursor-pointer transition-colors duration-150;
+  }
+
+  .tag {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-mono;
+  }
+}
+
+/* Leaflet map override */
+.leaflet-container {
+  background: #12121F !important;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.leaflet-tile {
+  filter: invert(1) hue-rotate(200deg) saturate(0.7) brightness(0.8);
+}
+
+/* Canvas cursor */
+canvas.signature-canvas {
+  cursor: crosshair;
+}
+
+/* Page transition */
+.page-enter {
+  animation: slideUp 0.35s ease forwards;
+}
