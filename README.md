@@ -40,10 +40,6 @@ Payload:
 
 ## Virtualization math
 
-I did not use `react-window` or `react-virtualized`.
-
-The list uses a fixed row height and native scrolling.
-
 ```js
 startIndex = Math.floor(scrollTop / rowHeight)
 visibleCount = Math.ceil(containerHeight / rowHeight)
